@@ -24,6 +24,7 @@ export default function useFetchData(temp_data) {
     temp_data.map((obj) => {});
   }
 
+  const deadNum = deathData.length;
   console.log(deathData.length, temp_data.length);
 
   // //Return the last element on the array
@@ -44,5 +45,5 @@ export default function useFetchData(temp_data) {
     return (((a - b) / b) * 100).toFixed(2);
   }
 
-  return { data, latestCaseNum, secLastCaseNum, getPecent };
+  return { deadNum, data, latestCaseNum, secLastCaseNum, getPecent };
 }
