@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import NavStyle from '../styles/navStyle';
+
 export default function Nav() {
   return (
-    <div>
+    <NavStyle>
       <ul>
         <li>
           <Link to="/">Overview </Link>
@@ -12,6 +14,6 @@ export default function Nav() {
           <Link to="/provincial">Provincial</Link>
         </li>
       </ul>
-    </div>
+    </NavStyle>
   );
 }
