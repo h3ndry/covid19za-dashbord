@@ -21,7 +21,7 @@ html {
 body {
   background-color: var(--bg-color);
   color: #fcfcfb;
-  padding: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   font-family: 'Montserrat', sans-serif;
 }
 
