@@ -15,19 +15,19 @@ export default function useDeathCases() {
       )
       .then((res) => {
         // handle success
-        setData(extractProv(res.data));
+        setData(extractProv(res.dataa));
+        setLoding(false);
       })
       .catch((error) => {
         // handle error
         setData(extractProv(temp_data));
+        setLoding(false);
       });
 
     return () => {
       // cleanup
     };
   }, []);
-
-  console.log(data);
 
   return { loading, data };
 }

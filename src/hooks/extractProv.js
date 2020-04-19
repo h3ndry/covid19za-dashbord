@@ -1,5 +1,6 @@
-export default function EtractEachProv(arry) {
+export default function EtractEachProv(array) {
   const provData = {
+    dates: [],
     EC: [],
     FS: [],
     GP: [],
@@ -12,18 +13,19 @@ export default function EtractEachProv(arry) {
     UNKN: [],
   };
 
-  arry.map((each) => {
-    provData.EC.push(parseInt(each.provinces.eastern_cape));
-    provData.FS.push(parseInt(each.provinces.free_state));
-    provData.GP.push(parseInt(each.provinces.gauteng));
-    provData.KZN.push(parseInt(each.provinces.kwazulu_natal));
-    provData.LP.push(parseInt(each.provinces.limpopo));
-    provData.MP.push(parseInt(each.provinces.mpumlanga));
-    provData.MP.push(parseInt(each.provinces.mpumlanga));
-    provData.NC.push(parseInt(each.provinces.northern_cape));
-    provData.WC.push(parseInt(each.provinces.western_cape));
-    provData.EC.push(parseInt(each.provinces.eastern_cape));
-    provData.UNKN.push(parseInt(each.provinces.unknown));
+  array.forEach((element) => {
+    provData.dates.push(element.date);
+
+    provData.EC.push(parseInt(element.provinces.eastern_cape));
+    provData.FS.push(parseInt(element.provinces.free_state));
+    provData.GP.push(parseInt(element.provinces.gauteng));
+    provData.KZN.push(parseInt(element.provinces.kwazulu_natal));
+    provData.LP.push(parseInt(element.provinces.limpopo));
+    provData.MP.push(parseInt(element.provinces.mpumlanga));
+    provData.NC.push(parseInt(element.provinces.northern_cape));
+    provData.WC.push(parseInt(element.provinces.western_cape));
+    provData.EC.push(parseInt(element.provinces.eastern_cape));
+    provData.UNKN.push(parseInt(element.provinces.unknown));
   });
 
   return provData;
