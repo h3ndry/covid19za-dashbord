@@ -1,9 +1,9 @@
 import React from 'react';
 import { Bar, defaults } from 'react-chartjs-2';
-import useProvinceData from '../hooks/useProvincialData';
+import useProvData from '../hooks/useProvData';
 
 export default function PovincialBarCharts() {
-  const { arryProv } = useProvinceData();
+  const { data } = useProvData();
 
   defaults.global.defaultFontColor = 'rgba(255, 255, 255, .7)';
   defaults.line.spanGaps = true;
@@ -13,7 +13,7 @@ export default function PovincialBarCharts() {
 
     datasets: [
       {
-        data: arryProv,
+        data: data.MP,
         borderColor: ['rgba(255, 255, 102, .4)'],
         backgroundColor: [
           'rgba(255, 255, 102, 0.4)',
