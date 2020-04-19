@@ -5,15 +5,6 @@ import useProvinceData from '../hooks/useProvincialData';
 export default function ProvinceLineChart() {
   const { dates, UNKN, MP, WC, NW, NC, KZN, LP, GP, FS } = useProvinceData();
 
-  // [
-  //   'rgba(255, 99, 132, 1)',
-  //   'rgba(54, 162, 235, 1)',
-  //   'rgba(255, 206, 86, 1)',
-  //   'rgba(75, 192, 192, 1)',
-  //   'rgba(153, 102, 255, 1)',
-  //   'rgba(255, 159, 64, 1)',
-  // ],
-
   defaults.global.defaultFontColor = 'rgba(255, 255, 255, .7)';
   defaults.line.spanGaps = true;
   const chartData = {
@@ -23,38 +14,56 @@ export default function ProvinceLineChart() {
       {
         label: 'Unknown',
         data: UNKN,
+        fill: false,
+        borderColor: 'rgba(255, 255, 102, .4)',
       },
       {
         label: 'Mpumalanga',
         data: MP,
+        fill: false,
+        borderColor: 'rgba(255, 153, 102, .4)',
       },
       {
         label: 'Westen Cape',
         data: WC,
+        fill: false,
+        borderColor: 'rgba(255, 0, 255, .4)',
       },
       {
         label: 'North West',
         data: NW,
+        fill: false,
+        borderColor: 'rgba(102, 255, 153, .4)',
       },
       {
         label: 'Northen Cape',
         data: NC,
+        fill: false,
+        borderColor: 'rgba(100, 51, 255, .4)',
       },
       {
         label: 'Kwazulu-Natal',
         data: KZN,
+        fill: false,
+        borderColor: 'rgba(255, 51, 51, .4)',
       },
       {
         label: 'Limpompo',
         data: LP,
+        fill: false,
+        borderColor: 'rgba(255, 0, 102, .4)',
       },
       {
         label: 'Guateng',
         data: GP,
+        fill: false,
+        borderColor: 'rgba(255, 102, 204, .4)',
       },
       {
         label: 'FreeState',
         data: FS,
+        fill: false,
+        borderColor: 'rgba(102, 255, 255, .4)',
       },
     ],
   };

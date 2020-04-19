@@ -7,7 +7,7 @@ import Nav from './components/nav';
 
 //Pages
 import Overview from './pages/overview';
-import Provincial from './pages/provincial';
+import ProvincialPage from './pages/provincialPage';
 import PageNotFound from './pages/404';
 
 const App = () => (
@@ -17,7 +17,7 @@ const App = () => (
     <Nav />
     <Switch>
       <Route path="/" exact component={Overview} />
-      <Route path="/provincial" component={Provincial} />
+      <Route path="/provincial" component={ProvincialPage} />
       <Route component={PageNotFound} />
     </Switch>
   </>
