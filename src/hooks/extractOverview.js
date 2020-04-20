@@ -2,8 +2,6 @@ export default (array) => {
   const casesTL = {
     dates: [],
     cases: [],
-    latesCases: [],
-    secondLast: [],
   };
 
   array.forEach((element, index) => {
@@ -11,11 +9,11 @@ export default (array) => {
     casesTL.cases.push(element.total);
 
     if (array.length - 1 === index) {
-      casesTL.latesCases.push(element.total);
+      casesTL.latesCases = element.total;
     }
 
     if (array.length - 2 === index) {
-      casesTL.secondLast.push(element.total);
+      casesTL.secondLast = element.total;
     }
   });
 

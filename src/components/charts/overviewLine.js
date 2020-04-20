@@ -3,6 +3,7 @@ import { Line, defaults } from 'react-chartjs-2';
 
 import useOverview from '../../hooks/useOverview';
 import ChartBox from './chartBox';
+import Loader from '../loader';
 
 export default function Chart() {
   const { loading, data } = useOverview();
@@ -51,7 +52,7 @@ export default function Chart() {
 
   return (
     <ChartBox>
-      <Line data={chartData} options={chartOption} />
+      {loading ? <Loader /> : <Line data={chartData} options={chartOption} />}
     </ChartBox>
   );
 }

@@ -29,7 +29,5 @@ export default function useFetchData() {
     };
   }, []);
 
-  console.log(data);
-
   return { loading, data };
 }

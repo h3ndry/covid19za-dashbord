@@ -27,6 +27,7 @@ export default styled.div`
         line-height: 1.3;
         .number {
           font-size: 2rem;
+          letter-spacing: 2px;
         }
         .diff {
           font-size: 1.125rem;
