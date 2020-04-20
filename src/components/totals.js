@@ -3,6 +3,7 @@ import TotalStyle from '../styles/totalStyle';
 
 import useOverview from '../hooks/useOverview';
 import IconSVG from './iconSVG';
+import Loader from './loader';
 
 const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
   return (
@@ -25,20 +26,24 @@ const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
 };
 
 export default function Totals() {
-  const { data } = useOverview();
+  const { loading, data } = useOverview();
 
   const casesDiff = data.latesCases - data.secondLast;
   const percent = ((Math.abs(casesDiff) / data.latesCases) * 100).toFixed(2);
 
   return (
     <TotalStyle>
-      {numBoard(
-        'Confirmed Cases',
-        'rgba(248, 181, 41, .1)',
-        'rgba(248, 181, 41, .85)',
-        data.latesCases,
-        percent,
-        casesDiff
+      {loading ? (
+        <Loader />
+      ) : (
+        numBoard(
+          'Confirmed Cases',
+          'rgba(248, 181, 41, .1)',
+          'rgba(248, 181, 41, .85)',
+          data.latesCases,
+          percent,
+          casesDiff
+        )
       )}
       <hr />
       {numBoard(

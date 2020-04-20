@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import extractProv from './extractProv';
+import extractLatesProv from './extractLatesProv';
 
 import temp_data from '../data/cumulative';
-import { pluginService } from 'chart.js';
-export default function useDeathCases() {
+
+export default function useProveData() {
   const [data, setData] = useState({});
   const [loading, setLoding] = useState(true);
+  const [latesProv, setLatesProv] = useState({});
 
   useEffect(() => {
     axios
@@ -15,12 +17,14 @@ export default function useDeathCases() {
       )
       .then((res) => {
         // handle success
-        setData(extractProv(res.dataa));
+        setData(extractProv(res.data));
+        setLatesProv(extractLatesProv(res.data));
         setLoding(false);
       })
       .catch((error) => {
         // handle error
         setData(extractProv(temp_data));
+        setLatesProv(extractLatesProv(temp_data));
         setLoding(false);
       });
 
@@ -29,5 +33,5 @@ export default function useDeathCases() {
     };
   }, []);
 
-  return { loading, data };
+  return { loading, data, latesProv };
 }

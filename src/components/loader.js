@@ -28,7 +28,11 @@ const SpinnerBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 20rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
   .pulse-container {
     width: 120px;

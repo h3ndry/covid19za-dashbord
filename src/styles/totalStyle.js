@@ -5,6 +5,7 @@ export default styled.div`
   display: inline-block;
   padding: 1em 2em;
   border-radius: 10px;
+  position: relative;
 
   /* Temp margin */
   margin: 2rem;

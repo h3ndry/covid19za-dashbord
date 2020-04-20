@@ -1,7 +1,7 @@
 import React from 'react';
 import LineChart from '../components/charts/provLine';
 import ProvStyle from '../styles/provPageStyle';
-import BarChart from '../components/provincialBarCharts';
+import PieChart from '../components/charts/provPie';
 
 export default function Provicila() {
   return (
@@ -10,8 +10,8 @@ export default function Provicila() {
         <LineChart />
       </div>
 
-      <div className="chart">
-        <BarChart />
+      <div className="pie-chart">
+        <PieChart />
       </div>
     </ProvStyle>
   );

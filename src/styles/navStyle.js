@@ -19,6 +19,7 @@ export default styled.div`
         color: var(--text-color);
         font-size: 1.25rem;
         border-radius: 5px;
+        transition: all 0.3s ease-in;
       }
 
       a:hover,

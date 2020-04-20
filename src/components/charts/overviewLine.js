@@ -26,7 +26,7 @@ export default function Chart() {
   const chartOption = {
     title: {
       display: true,
-      text: 'Line Chart',
+      text: 'South Africa',
     },
 
     scales: {

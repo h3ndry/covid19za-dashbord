@@ -13,7 +13,7 @@ export default function EtractEachProv(array) {
     UNKN: [],
   };
 
-  array.forEach((element) => {
+  array.forEach((element, index) => {
     provData.dates.push(element.date);
 
     provData.EC.push(parseInt(element.provinces.eastern_cape));
@@ -23,8 +23,8 @@ export default function EtractEachProv(array) {
     provData.LP.push(parseInt(element.provinces.limpopo));
     provData.MP.push(parseInt(element.provinces.mpumlanga));
     provData.NC.push(parseInt(element.provinces.northern_cape));
+    provData.NW.push(parseInt(element.provinces.north_west));
     provData.WC.push(parseInt(element.provinces.western_cape));
-    provData.EC.push(parseInt(element.provinces.eastern_cape));
     provData.UNKN.push(parseInt(element.provinces.unknown));
   });
 

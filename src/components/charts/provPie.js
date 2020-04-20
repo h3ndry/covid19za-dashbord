@@ -1,20 +1,24 @@
 import React from 'react';
-import { Bar, defaults } from 'react-chartjs-2';
-import useProvData from '../hooks/useProvData';
+import { Doughnut, defaults } from 'react-chartjs-2';
+import useProvData from '../../hooks/useProvData';
+import ChartBox from './chartBox';
+import Loader from '../loader';
 
 export default function PovincialBarCharts() {
-  const { data } = useProvData();
+  const { loading, latesProv } = useProvData();
+
+  console.log(latesProv);
 
   defaults.global.defaultFontColor = 'rgba(255, 255, 255, .7)';
   defaults.line.spanGaps = true;
 
   const chartData = {
-    labels: ['EC', 'FS', 'GP', 'KZN', 'LP', 'NC', 'NW', 'MP', 'WC', 'UNKNOW'],
+    // labels: ['EC', 'FS', 'GP', 'KZN', 'LP', 'MP', 'NC', 'NW', 'WC', 'UNKN'],
 
     datasets: [
       {
-        data: data.MP,
-        borderColor: ['rgba(255, 255, 102, .4)'],
+        data: latesProv, //[56, 69, 45, 89, 56, 78, 32, 67, 23, 34],
+        borderColor: 'rgba(42, 45, 50, 1)',
         backgroundColor: [
           'rgba(255, 255, 102, 0.4)',
           'rgba(255, 153, 102, 0.4)',
@@ -37,33 +41,17 @@ export default function PovincialBarCharts() {
   const chartOption = {
     title: {
       display: true,
-      text: 'Line Chart',
-    },
-
-    scales: {
-      yAxes: [
-        {
-          ticks: {},
-
-          gridLines: {
-            color: 'rgba(255, 255, 255, .02)',
-          },
-        },
-      ],
-
-      xAxes: [
-        {
-          gridLines: {
-            color: 'rgba(255, 255, 255, .02)',
-          },
-        },
-      ],
+      text: 'Cases Per Province',
     },
   };
 
   return (
-    <div>
-      <Bar data={chartData} options={chartOption} />
-    </div>
+    <ChartBox>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Doughnut data={chartData} options={chartOption} />
+      )}
+    </ChartBox>
   );
 }
