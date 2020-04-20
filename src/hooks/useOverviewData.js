@@ -6,6 +6,27 @@ import axios from 'axios';
 export default function useFetchData(temp_data) {
   const [data, setData] = useState(temp_data);
 
+  useEffect(() => {
+    axios
+      .get(
+        'https://covid-za-api.herokuapp.com/cases/timeline/provincial/cumulative'
+      )
+      .then((res) => {
+        // handle success
+        // setData(extractProv(res.dataa));
+        setLoding(false);
+      })
+      .catch((error) => {
+        // handle error
+        // setData(extractProv(temp_data));
+        setLoding(false);
+      });
+
+    return () => {
+      // cleanup
+    };
+  }, []);
+
   const getLatestCase = (arry) => {
     let latest;
     arry.map((obj, i) => {

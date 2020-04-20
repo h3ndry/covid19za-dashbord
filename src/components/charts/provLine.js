@@ -85,10 +85,7 @@ export default function ProvinceLineChart() {
     scales: {
       yAxes: [
         {
-          ticks: {
-            min: 0,
-            stepSize: 50,
-          },
+          ticks: {},
 
           gridLines: {
             color: 'rgba(255, 255, 255, .02)',
