@@ -1,8 +1,6 @@
 import React from 'react';
 
-import useFetchData from '../hooks/useFetchData';
-import temp_data from '../data/cumulative';
-import ConfirmedCaseChart from '../components/overviewLineChart';
+import ConfirmedCaseChart from '../components/charts/overviewLine';
 import DeathCasesChart from '../components/deathLineChart';
 
 import OverviewStyle from '../styles/overview';
@@ -12,7 +10,7 @@ export default function Overview() {
   return (
     <OverviewStyle>
       <Totals />
-      <div className="confirmed-chart">
+      <div className="line-chart">
         <ConfirmedCaseChart />
       </div>
       <DeathCasesChart />

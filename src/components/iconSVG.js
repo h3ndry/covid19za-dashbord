@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useFetchData from '../hooks/useFetchData';
+import useOverview from '../hooks/useOverview';
 import temp_data from '../data/cumulative';
 
 const Icon = styled.svg`
@@ -22,8 +22,6 @@ const downPath = (
 );
 
 const IconSVG = ({ bgColor, fillColor }) => {
-  const { deadNum } = useFetchData(temp_data);
-
   return (
     <Icon bgColor={bgColor} fillColor={fillColor} viewBox="0 0 448 512">
       {upPath}

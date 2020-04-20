@@ -1,17 +1,11 @@
 import React from 'react';
 import TotalStyle from '../styles/totalStyle';
 
-import useFetchData from '../hooks/useFetchData';
+import useFetchData from '../hooks/useOverview';
 import temp_data from '../data/cumulative';
 import IconSVG from './iconSVG';
 
 export default function Totals() {
-  const { deadNum, latestCaseNum, secLastCaseNum, getPecent } = useFetchData(
-    temp_data
-  );
-
-  const diff = getPecent(latestCaseNum, secLastCaseNum);
-
   return (
     <TotalStyle>
       <div className="container">
@@ -22,9 +16,9 @@ export default function Totals() {
             fillColor="rgba(248, 181, 41, .85)"
           />
           <p>
-            <span className="number"> {latestCaseNum}</span>
+            <span className="number"> {1000}</span>
             <br />
-            Increased by <span className="percent">{diff}%</span>
+            Increased by <span className="percent">{45}%</span>
           </p>
         </div>
       </div>
@@ -37,9 +31,9 @@ export default function Totals() {
             fillColor="rgba(255, 128, 139, 0.85)"
           />
           <p>
-            <span className="number"> {deadNum}</span>
+            <span className="number"> {78}</span>
             <br />
-            Increased by <span className="percent">{diff}%</span>
+            Increased by <span className="percent">{78}%</span>
           </p>
         </div>
       </div>

@@ -1,14 +1,10 @@
 import React from 'react';
 import { Line, defaults } from 'react-chartjs-2';
 
-// defaults.global.animation = false;
-
-import useFetchData from '../hooks/useFetchData';
-import temp_data from '../data/cumulative';
-import deathData from '../data/deaths';
+import useOverview from '../../hooks/useOverview';
 
 export default function Chart() {
-  const { data } = useFetchData(temp_data, deathData);
+  const { casesTL } = useOverview();
 
   function getDates(data) {
     return data.map((obj) => {
@@ -25,11 +21,11 @@ export default function Chart() {
   defaults.global.defaultFontColor = 'rgba(255, 255, 255, .7)';
   defaults.line.spanGaps = true;
   const chartData = {
-    labels: getDates(data),
+    labels: [1, 2, 3, 4, 5, 6],
     datasets: [
       {
         label: 'Confirmed Cases of covid-19',
-        data: getCaseNumbers(data),
+        data: [100, 10, 40, 500, 30, 22],
         backgroundColor: ['rgba(248, 181, 41, 0.3)'],
         pointBackgroundColor: ['rgba(248, 181, 41, 0.9)'],
         pointBorderColor: ['rgba(248, 181, 41, 0.9)'],
@@ -55,9 +51,7 @@ export default function Chart() {
     scales: {
       yAxes: [
         {
-          ticks: {
-            max: 3000,
-          },
+          ticks: {},
 
           gridLines: {
             color: 'rgba(255, 255, 255, .02)',
