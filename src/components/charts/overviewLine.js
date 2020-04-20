@@ -2,42 +2,22 @@ import React from 'react';
 import { Line, defaults } from 'react-chartjs-2';
 
 import useOverview from '../../hooks/useOverview';
+import ChartBox from './chartBox';
 
 export default function Chart() {
-  const { casesTL } = useOverview();
-
-  function getDates(data) {
-    return data.map((obj) => {
-      return obj.date;
-    });
-  }
-
-  function getCaseNumbers(data) {
-    return data.map((obj) => {
-      return obj.total;
-    });
-  }
+  const { loading, data } = useOverview();
 
   defaults.global.defaultFontColor = 'rgba(255, 255, 255, .7)';
   defaults.line.spanGaps = true;
   const chartData = {
-    labels: [1, 2, 3, 4, 5, 6],
+    labels: data.dates,
     datasets: [
       {
         label: 'Confirmed Cases of covid-19',
-        data: [100, 10, 40, 500, 30, 22],
-        backgroundColor: ['rgba(248, 181, 41, 0.3)'],
-        pointBackgroundColor: ['rgba(248, 181, 41, 0.9)'],
+        data: data.cases,
+        fill: false,
         pointBorderColor: ['rgba(248, 181, 41, 0.9)'],
-        borderColor: 'rgba(75, 192, 192, .4)',
-        // [
-        //   'rgba(255, 99, 132, 1)',
-        //   'rgba(54, 162, 235, 1)',
-        //   'rgba(255, 206, 86, 1)',
-        //   'rgba(75, 192, 192, 1)',
-        //   'rgba(153, 102, 255, 1)',
-        //   'rgba(255, 159, 64, 1)',
-        // ],
+        borderColor: 'rgba(255, 51, 51, 0.4)',
       },
     ],
   };
@@ -69,5 +49,9 @@ export default function Chart() {
     },
   };
 
-  return <Line data={chartData} options={chartOption} />;
+  return (
+    <ChartBox>
+      <Line data={chartData} options={chartOption} />
+    </ChartBox>
+  );
 }

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import deathData from '../data/deaths';
+import extractOverview from './extractOverview';
+import temp_data from '../data/cumulative';
 
 import axios from 'axios';
 
-export default function useFetchData(temp_data) {
+export default function useFetchData() {
   const [data, setData] = useState({});
   const [loading, setLoding] = useState(true);
 
@@ -14,12 +15,12 @@ export default function useFetchData(temp_data) {
       )
       .then((res) => {
         // handle success
-        // setData(extractProv(res.dataa));
+        setData(extractOverview(res.data));
         setLoding(false);
       })
       .catch((error) => {
         // handle error
-        // setData(extractProv(temp_data));
+        setData(extractOverview(temp_data));
         setLoding(false);
       });
 
@@ -27,6 +28,8 @@ export default function useFetchData(temp_data) {
       // cleanup
     };
   }, []);
+
+  console.log(data);
 
   return { loading, data };
 }
