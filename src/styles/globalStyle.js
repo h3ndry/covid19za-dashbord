@@ -23,8 +23,10 @@ html {
 body {
   background-color: var(--bg-color);
   color: #fcfcfb;
-  padding: 4rem 2rem 2rem 2rem;
   font-family: 'Montserrat', sans-serif;
+
+  /* padding: 4rem 2rem 2rem 2rem; */
+
 }
 
 `;

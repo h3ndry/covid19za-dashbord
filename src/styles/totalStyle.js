@@ -2,13 +2,10 @@ import styled from 'styled-components';
 
 export default styled.div`
   background-color: var(--forgroud-color);
-  display: inline-block;
   padding: 1em 2em;
   border-radius: 10px;
   position: relative;
-
-  /* Temp margin */
-  margin: 2rem;
+  min-height: 14rem;
 
   .container {
     h2 {

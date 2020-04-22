@@ -13,7 +13,8 @@ export default function PovincialBarCharts() {
   defaults.line.spanGaps = true;
 
   const chartData = {
-    // labels: ['EC', 'FS', 'GP', 'KZN', 'LP', 'MP', 'NC', 'NW', 'WC', 'UNKN'],
+    display: true,
+    labels: ['EC', 'FS', 'GP', 'KZN', 'LP', 'MP', 'NC', 'NW', 'WC', 'UNKN'],
 
     datasets: [
       {
@@ -31,9 +32,6 @@ export default function PovincialBarCharts() {
           'rgba(102, 255, 255, 0.4)',
           'rgba(102, 255, 0, 0.4)',
         ],
-        // pointBackgroundColor: ['rgba(248, 181, 41, 0.9)'],
-        // pointBorderColor: ['rgba(248, 181, 41, 0.9)'],
-        // borderColor: 'rgba(75, 192, 192, .4)',
       },
     ],
   };

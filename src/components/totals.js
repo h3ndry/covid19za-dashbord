@@ -4,6 +4,7 @@ import TotalStyle from '../styles/totalStyle';
 import useOverview from '../hooks/useOverview';
 import IconSVG from './iconSVG';
 import Loader from './loader';
+import useDeathNum from '../hooks/useDeathNum';
 
 const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
   return (
@@ -18,7 +19,13 @@ const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
         <p>
           <span className="number">{value}</span>
           <br />
-          Increased by <span className="percent">{percent}%</span>
+          {percent ? (
+            <span>
+              Increased by <span className="percent">{percent}%</span>
+            </span>
+          ) : (
+            'please stay home'
+          )}
         </p>
       </div>
     </div>
@@ -27,6 +34,7 @@ const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
 
 export default function Totals() {
   const { loading, data } = useOverview();
+  const [deatNum] = useDeathNum();
 
   const casesDiff = data.latesCases - data.secondLast;
   const percent = ((Math.abs(casesDiff) / data.latesCases) * 100).toFixed(2);
@@ -46,13 +54,17 @@ export default function Totals() {
         )
       )}
       <hr />
-      {numBoard(
-        'Confirmed Cases',
-        'rgba(255, 128, 139, 0.1)',
-        'rgba(255, 128, 139, 0.85)',
-        56,
-        33,
-        -10
+      {loading ? (
+        <Loader />
+      ) : (
+        numBoard(
+          'Confirmed Cases',
+          'rgba(255, 128, 139, 0.1)',
+          'rgba(255, 128, 139, 0.85)',
+          deatNum,
+          0,
+          10
+        )
       )}
     </TotalStyle>
   );

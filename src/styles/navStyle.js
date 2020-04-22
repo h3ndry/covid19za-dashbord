@@ -8,16 +8,15 @@ export default styled.div`
     li {
       display: inline-block;
 
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-
       a:link,
       a:visited {
-        padding: 0.5em 1em;
+        /* padding: 0.5em 1em; */
         text-decoration: none;
         color: var(--text-color);
-        font-size: 1.25rem;
+        /* font-size: 1.25rem; */
+
+        letter-spacing: 1px;
+        padding: 1em;
         border-radius: 5px;
         transition: all 0.3s ease-in;
       }

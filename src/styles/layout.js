@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export default styled.div`
+  padding-top: 1.5rem;
+  width: 92%;
+  margin: 0 auto;
   display: grid;
-  grid-row-gap: 1rem;
-  .line-chart {
-    position: relative;
-  }
 `;

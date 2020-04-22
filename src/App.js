@@ -10,16 +10,20 @@ import Overview from './pages/overview';
 import ProvPage from './pages/provPage';
 import PageNotFound from './pages/404';
 
+import Layout from './styles/layout';
+
 const App = () => (
   <>
     <GlobalStyle />
-    <Banner />
-    <Nav />
-    <Switch>
-      <Route path="/" exact component={Overview} />
-      <Route path="/provincial" component={ProvPage} />
-      <Route component={PageNotFound} />
-    </Switch>
+    <Layout>
+      <Banner />
+      <Nav />
+      <Switch>
+        <Route path="/" exact component={Overview} />
+        <Route path="/provincial" component={ProvPage} />
+        <Route component={PageNotFound} />
+      </Switch>
+    </Layout>
   </>
 );
 
