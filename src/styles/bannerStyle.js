@@ -56,4 +56,23 @@ export default styled.div`
       }
     }
   }
+  @media only screen and (min-width: 42.1875em) {
+    min-height: 10rem;
+    padding: 2rem 2.5em;
+    .text {
+      h1 {
+        font-size: 2.2rem;
+        line-height: 1.8;
+        letter-spacing: 2px;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .banner-img {
+      display: block;
+      max-width: 22.5rem;
+    }
+  }
 `;

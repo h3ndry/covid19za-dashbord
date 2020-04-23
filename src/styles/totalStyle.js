@@ -5,7 +5,7 @@ export default styled.div`
   padding: 1em 2em;
   border-radius: 10px;
   position: relative;
-  min-height: 14rem;
+  min-height: 22.625rem;
 
   .container {
     h2 {
@@ -36,6 +36,6 @@ export default styled.div`
 
   hr {
     opacity: 0.2;
-    margin-bottom: 0.5em;
+    margin: 2rem 0;
   }
 `;

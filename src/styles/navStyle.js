@@ -2,11 +2,18 @@ import styled from 'styled-components';
 
 export default styled.div`
   padding: 1rem 0;
+  margin-bottom: 1rem;
   ul {
     list-style: none;
 
     li {
       display: inline-block;
+
+      @media only screen and (min-width: 42.1875em) {
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+      }
 
       a:link,
       a:visited {

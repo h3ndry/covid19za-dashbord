@@ -8,9 +8,9 @@ export default function Overview() {
   return (
     <OverviewStyle>
       <Totals />
-      {/* <div className="line-chart">
+      <div className="line-chart">
         <ConfirmedCaseChart />
-      </div> */}
+      </div>
     </OverviewStyle>
   );
 }

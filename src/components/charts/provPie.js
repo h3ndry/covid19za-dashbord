@@ -1,7 +1,6 @@
 import React from 'react';
 import { Doughnut, defaults } from 'react-chartjs-2';
 import useProvData from '../../hooks/useProvData';
-import ChartBox from './chartBox';
 import Loader from '../loader';
 
 export default function PovincialBarCharts() {
@@ -13,7 +12,7 @@ export default function PovincialBarCharts() {
   defaults.line.spanGaps = true;
 
   const chartData = {
-    display: true,
+    display: false,
     labels: ['EC', 'FS', 'GP', 'KZN', 'LP', 'MP', 'NC', 'NW', 'WC', 'UNKN'],
 
     datasets: [
@@ -38,18 +37,18 @@ export default function PovincialBarCharts() {
 
   const chartOption = {
     title: {
-      display: true,
+      display: false,
       text: 'Cases Per Province',
     },
   };
 
   return (
-    <ChartBox>
+    <>
       {loading ? (
         <Loader />
       ) : (
         <Doughnut data={chartData} options={chartOption} />
       )}
-    </ChartBox>
+    </>
   );
 }

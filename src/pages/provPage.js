@@ -6,12 +6,12 @@ import PieChart from '../components/charts/provPie';
 export default function Provicila() {
   return (
     <ProvStyle>
-      <div className="line-chart">
-        <LineChart />
-      </div>
-
       <div className="pie-chart">
         <PieChart />
+      </div>
+
+      <div className="line-chart">
+        <LineChart />
       </div>
     </ProvStyle>
   );

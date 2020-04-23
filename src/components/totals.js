@@ -6,7 +6,9 @@ import IconSVG from './iconSVG';
 import Loader from './loader';
 import useDeathNum from '../hooks/useDeathNum';
 
-const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
+import { animated, useSpring } from 'react-spring';
+
+const NumBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
   return (
     <div className="container">
       <h2>{title}</h2>
@@ -17,7 +19,7 @@ const numBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
           casesDiff={casesDiff}
         />
         <p>
-          <span className="number">{value}</span>
+          <animated.span className="number">{value}</animated.span>
           <br />
           {percent ? (
             <span>
@@ -44,7 +46,7 @@ export default function Totals() {
       {loading ? (
         <Loader />
       ) : (
-        numBoard(
+        NumBoard(
           'Confirmed Cases',
           'rgba(248, 181, 41, .1)',
           'rgba(248, 181, 41, .85)',
@@ -57,7 +59,7 @@ export default function Totals() {
       {loading ? (
         <Loader />
       ) : (
-        numBoard(
+        NumBoard(
           'Confirmed Cases',
           'rgba(255, 128, 139, 0.1)',
           'rgba(255, 128, 139, 0.85)',
