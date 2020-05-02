@@ -9,7 +9,6 @@ export default function useFetchData() {
   const [data, setData] = useState({});
   const [loading, setLoding] = useState(true);
 
-  const [props, set, stop] = useSpring(() => ({ caseNum: 1 }));
   useEffect(() => {
     axios
       .get(
@@ -20,11 +19,10 @@ export default function useFetchData() {
         const results = res.data;
         setData(extractOverview(results));
         setLoding(false);
-        set({ caseNum: results.latestCases });
       })
       .catch((error) => {
         // handle error
-        //        setData(extractOverview(temp_data));
+        setData(extractOverview(temp_data));
         setLoding(false);
       });
 
@@ -33,6 +31,5 @@ export default function useFetchData() {
     };
   }, []);
 
-  console.log(props.caseNum);
-  return { loading, data, props };
+  return { loading, data };
 }
