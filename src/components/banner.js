@@ -1,6 +1,7 @@
 import React from 'react';
 import BannerStyle from '../styles/bannerStyle';
 import SocialDistanceIcon from './socialDistanceIcon';
+import { useSpring } from 'react-spring'
 
 export default function Banner() {
   return (

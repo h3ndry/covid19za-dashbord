@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSpring } from 'react-spring';
 import extractOverview from './extractOverview';
 import temp_data from '../data/cumulative';
 
@@ -8,6 +9,7 @@ export default function useFetchData() {
   const [data, setData] = useState({});
   const [loading, setLoding] = useState(true);
 
+  const [props, set, stop] = useSpring(() => ({ caseNum: 1 }));
   useEffect(() => {
     axios
       .get(
@@ -15,12 +17,14 @@ export default function useFetchData() {
       )
       .then((res) => {
         // handle success
-        setData(extractOverview(res.data));
+        const results = res.data;
+        setData(extractOverview(results));
         setLoding(false);
+        set({ caseNum: results.latestCases });
       })
       .catch((error) => {
         // handle error
-        setData(extractOverview(temp_data));
+        //        setData(extractOverview(temp_data));
         setLoding(false);
       });
 
@@ -29,5 +33,6 @@ export default function useFetchData() {
     };
   }, []);
 
-  return { loading, data };
+  console.log(props.caseNum);
+  return { loading, data, props };
 }

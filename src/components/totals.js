@@ -5,8 +5,7 @@ import useOverview from '../hooks/useOverview';
 import IconSVG from './iconSVG';
 import Loader from './loader';
 import useDeathNum from '../hooks/useDeathNum';
-
-import { animated, useSpring } from 'react-spring';
+import { animated } from 'react-spring';
 
 const NumBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
   return (
@@ -19,7 +18,8 @@ const NumBoard = (title, bgColor, fillColor, value, percent, casesDiff) => {
           casesDiff={casesDiff}
         />
         <p>
-          <animated.span className="number">{value}</animated.span>
+          <span className="number">{value}</span>
+
           <br />
           {percent ? (
             <span>
