@@ -16,7 +16,6 @@ export default function useDeathCases() {
         // handle error
         console.log(error);
       });
-
     return () => {
       // cleanup
     };

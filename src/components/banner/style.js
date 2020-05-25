@@ -19,25 +19,42 @@ export default styled.div`
   margin-bottom: 2rem;
 
   .text {
-    h1 {
-      /* font-size: 1.8rem; */
-      /* line-height: 1.8; */
-      /* letter-spacing: 2px; */
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    .word-container {
+      display: inline-block;
+      position: relative;
+      font-size: 2.5rem;
+      height: 3.5rem;
+      width: 9rem;
+      overflow: hidden;
+      &:last-child{
+        width: 12rem;
+        color: var(--red-color)
+      }
+      &:not(:last-child){
+        margin-right: .5em;
+      }
+      .word {
+        position: absolute;
+        display: block;
+        top: 0;
+        left:0;
+        bottom:0;
+        right:0;
 
-      opacity: 0.85;
-
-      span {
-        color: var(--red-color);
       }
     }
-
+    .word-container {
+      position: relative;
+    }
     p {
       font-size: 0.875rem;
       opacity: 0.85;
       letter-spacing: 1px;
       line-height: 1.2;
+      overflow: hidden;
+      a:link, a:visited {
+        color: var(--red-color)
+      }
     }
   }
 
@@ -69,6 +86,7 @@ export default styled.div`
         font-size: 1rem;
       }
     }
+
 
     .banner-img {
       display: block;
